@@ -7,11 +7,6 @@ public class Main {
 
     public static void main(String[] args)
     {
-        int[] arr = {3,2,3,1,2,4,5,5,6};
-        System.out.println("Max is " + recursiveMax(arr, arr.length));
-        int max = Integer.MIN_VALUE;
-        System.out.println("Max is " + findMaxDivideAndConquer(arr, 0, arr.length - 1, max));
-        findKthLargest(arr, 4);
     }
     /** majorityElement using divide and conquer*/
     public static int majorityElementDC(int[] nums)
@@ -192,14 +187,12 @@ public class Main {
     }
     public static int findKthLargest(int[] nums, int k)
     {
-        System.out.println("kth largest question starts: ");
         Arrays.sort(nums);
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++)
         {
             set.add(nums[i]);
         }
-        System.out.println(set + "set ");
         int[] newArr = new int[set.size()];
         int index = 0;
         for (int i : set) newArr[index++] = i;

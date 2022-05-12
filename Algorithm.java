@@ -73,30 +73,4 @@ public class Algorithm
             }
         }
     }
-
-    public void findMaxDivideAndConquer(int[] nums, int left, int right, Algorithm al)
-    {
-        if (left == right)
-        {
-            if (nums[right] > al.max)
-                al.max = nums[right];
-            return;
-        }
-        if (right - left == 1)
-        {
-            if (nums[left] > nums[right])
-            {
-                if (nums[left] > al.max)
-                    al.max = nums[left];
-            }
-            else
-            {
-                if (nums[right] > al.max)
-                    al.max = nums[right];
-            }
-        }
-        int mid = (left + right) / 2;
-        findMaxDivideAndConquer(nums, left, mid, al);
-        findMaxDivideAndConquer(nums, mid + 1, right, al);
-    }
 }

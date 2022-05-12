@@ -8,13 +8,6 @@ public class Algorithm
     private int max;
     public static void main(String[] args)
     {
-        Algorithm al = new Algorithm();
-        al.max = Integer.MIN_VALUE;
-        int[] test = {4, 3, 8, 7, 1, 9, 5, 9};
-        al.findMaxDivideAndConquer(test, 0, test.length - 1, al);
-        System.out.println(al.max + " ");
-        System.out.println(powerDivideAndConquer(2, 5));
-        closestNumbers(test);
     }
     /**Transform and conquer*/
     public static void closestNumbers(int[] nums)
@@ -79,22 +72,6 @@ public class Algorithm
                 }
             }
         }
-    }
-    public int stringMatchBruteForce(String text, String target)
-    {
-        int textLen = text.length();
-        int targetLen = target.length();
-
-        for (int i = 0; i <= textLen - targetLen; i++)
-        {
-            int j = 0;
-            while (j < targetLen && target.charAt(j) == text.charAt(i + j))
-            {
-                j++;
-            }
-            if (j == targetLen) return i;
-        }
-        return -1;
     }
 
     public void findMaxDivideAndConquer(int[] nums, int left, int right, Algorithm al)

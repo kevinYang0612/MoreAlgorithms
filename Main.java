@@ -37,6 +37,26 @@ public class Main {
         return count;
     }
     /** majorityElement using Boyer-Moore Voting Algorithm*/
+    public static int maxFreq(int[] arr, int n)
+    {
+        int res = 0;
+        int count = 1;
+        for(int i = 1; i < n; i++) 
+        {
+            if(arr[i] == arr[res]) {
+                count++;
+            } else {
+                count--;
+            }
+            if(count == 0) {
+                res = i;
+                count = 1;
+            }
+        }
+        return arr[res];
+    }
+    // constrains: an element appears more than half of input array length
+    // using moore's voting algorithm
     public static int majorityElement(int[] nums)
     {
         int majority = -1;
@@ -49,13 +69,19 @@ public class Main {
                 counter = 1;
             }
             else if (majority == num)
-
                 counter++;
             else
                 counter--;
         }
-        return majority;
+        counter = 0;
+        for (int num : nums)
+            if (num == majority)
+                counter++;
+        if (counter > nums.length/2)
+            return majority;
+        return -1;
     }
+
     /** This is dynamic programming way, O(n) */
     public static int maxSubarray(int[] nums)
     {
